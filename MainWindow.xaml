@@ -1,0 +1,26 @@
+﻿<Window x:Class="FitnesClubWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FitnesClubWpf" d:DataContext="{d:DesignInstance Type=local:MainWindowViewmodel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid SelectedIndex="{Binding selected.Item}" SelectionUnit="FullRow" ItemsSource="{Binding Visitors}" Margin="10,10,225,65" AutoGenerateColumns="false" CanUserDeleteRows="False" CanUserAddRows="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=id}"/>
+                <DataGridTextColumn Header="LastName" Binding="{Binding Path=LastName}"/>
+                <DataGridTextColumn Header="FirstName" Binding="{Binding Path=FirstName}"/>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding Path=bday}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Path=Phone}"/>
+                <DataGridTextColumn Header="Balance" Binding="{Binding Path=Balance}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Path=Status}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Command="{Binding Refresh}" Content="Обновить" Margin="624,30,69,345"></Button>
+        <Button Command="{Binding Add}" Content="Добавить" Margin="624,94,69,281"/>
+        <Button Command="{Binding Update}" Content="Редактировать" Margin="624,155,69,220"/>
+        <Button Command="{Binding Delete}" Content="Удалить" Margin="624,218,69,157"/>
+    </Grid>
+</Window>
